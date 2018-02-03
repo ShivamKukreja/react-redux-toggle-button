@@ -1,0 +1,59 @@
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: pxToRem(1);
+    margin: pxToRem(-1);
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: pxToRem(1);
+}
+
+.SlideBtn {
+    box-sizing: border-box;
+    border-radius: 4.6875rem;
+    border: solid 0.3125rem;
+    background-color: #313130;
+    color: #b95951;
+    display: block;
+    height: 9.375rem;
+    position: relative;
+    width: 18.75rem;
+    transition: color .3s;
+    margin: 6em auto;
+}
+
+.SlideBtn:focus {
+    outline: 0;
+    box-shadow: 0 0 20px;
+}
+
+.SlideBtn.is-active {
+    color: #36cfc3;
+}
+
+.SlideBtn-knob {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    height: 8.125rem;
+    width: 8.125rem;
+    background: linear-gradient(180deg, #4b4a49, #313130);
+    top: 0.3125rem;
+    left: 0.3125rem;
+    border: solid 0.3125rem;
+    border-radius: 4.375rem;
+    transition: left .3s;
+}
+
+.is-active > .SlideBtn-knob {
+    left: 9.6875rem;
+}
+.ToggledBg {
+    background: #4b4a49;
+    transition: background .75s;
+    padding: 1em;
+}
+.ToggledBg-lightsOn {
+    background: rgb(244, 217, 151);
+}
