@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import prepareStore from './App.Store';
-// import AppContainer from './App.Container';
-import ToggledBg from './ToggleBtn/ToggledBg';
+import AppContainer from './App.Container';
 
 class App extends Component {
   render() {
@@ -15,9 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <Provider store={store}>
-          <ToggledBg />
-        </Provider>
+        <AppContainer store = { store } />
       </div>
     );
   }

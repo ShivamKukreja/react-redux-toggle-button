@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+/* import React, { Component } from 'react';
 import ToggleBtn from './ToggleBtn';
-import ToggleAction from './ToggleBgAction';
 import './ToggleBtn.css';
 
 class ToggledBg extends Component {
-  static contextTypes = {
-    store: PropTypes.object.isRequired
-  };
+    constructor(props) {
+        super(props);
+        this.state = {lightsOn: false};
+    }
+    toggleBg = () => {
+        this.setState({ lightsOn : !this.state.lightsOn});
+    }
+    render() {
+        const bgClass = this.state.lightsOn ? ' ToggledBg-lightsOn' : '';
+        return(
+            <div className={'ToggledBg' + bgClass}>
+                <ToggleBtn isActive = {this.state.lightsOn} onToggle = {this.toggleBg} />
+            </div>
+        )
+    }
+} */
 
-  toggleBg = () => {
-    this.store.dispatch(ToggleAction());
-  };
+import React from 'react';
+import ToggleBtn from './ToggleBtn';
+import './ToggleBtn.css';
 
-  componentWillMount() {
-    this.store = this.context.store;
-  }
-
-  componentDidMount() {
-    this.unsubscribe = this.store.subscribe(() =>
-      this.setState(this.store.getState())
-    );
-  }
-  componentWillUnmount() {
-    this.unsubscribe;
-  }
-
-  render() {
-    const { lightsOn } = this.store.getState();
-    const bgClass = lightsOn ? ' ToggledBg-lightsOn' : '';
+function ToggledBg(props) {
+    const bgClass = props.lightsOn ? ' ToggledBg-lightsOn' : '';
     return (
-      <div className={'ToggledBg' + bgClass}>
-        <ToggleBtn isActive={lightsOn} onToggle={this.toggleBg} />
-      </div>
-    );
-  }
+        <div className={'ToggledBg' + bgClass}>
+            <ToggleBtn isActive={props.lightsOn} onToggle={props.onToggle} />
+        </div>
+    )
 }
-
 export default ToggledBg;
